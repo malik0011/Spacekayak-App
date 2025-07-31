@@ -110,5 +110,22 @@ dependencies {
     implementation("androidx.hilt:hilt-work:1.2.0") // ✅ Required for @HiltWorker
     kapt("androidx.hilt:hilt-compiler:1.1.0")       // ✅ Required for annotation processing
     implementation("androidx.work:work-runtime-ktx:2.10.2") // ✅ Or latest stable
+    testImplementation(kotlin("test"))
+    // JUnit
+    testImplementation("junit:junit:4.13.2")
+
+// Coroutines test
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+
+// Mocking
+    testImplementation("io.mockk:mockk:1.13.9")
+
+// Truth or AssertJ (optional, for fluent assertions)
+    testImplementation("com.google.truth:truth:1.1.5")
+
+// For Hilt ViewModel (optional in unit test)
+    testImplementation("androidx.arch.core:core-testing:2.2.0")
+
+
 
 }
