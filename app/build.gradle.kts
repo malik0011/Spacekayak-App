@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     id("org.jetbrains.kotlin.kapt")
     id("com.google.dagger.hilt.android") version "2.48"
+    alias(libs.plugins.google.gms.google.services)
 }
 hilt {
     enableAggregatingTask = false
@@ -63,6 +64,8 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.hilt.common)
+    implementation(libs.firebase.firestore)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -91,9 +94,6 @@ dependencies {
     kapt("androidx.room:room-compiler:2.6.1")
     implementation("androidx.room:room-ktx:2.6.1")
 
-    // WorkManager
-    implementation("androidx.work:work-runtime-ktx:2.9.0")
-
     // Testing
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
@@ -103,5 +103,12 @@ dependencies {
     implementation("androidx.core:core-ktx:1.12.0")
 
     implementation ("com.squareup:javapoet:1.13.0") // Use 1.11.0 or later
+
+    // Kotlin Serialization
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3") // adjust version
+
+    implementation("androidx.hilt:hilt-work:1.2.0") // ✅ Required for @HiltWorker
+    kapt("androidx.hilt:hilt-compiler:1.1.0")       // ✅ Required for annotation processing
+    implementation("androidx.work:work-runtime-ktx:2.10.2") // ✅ Or latest stable
 
 }

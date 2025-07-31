@@ -22,10 +22,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.malikstudios.spacekayakapp" />
+                  <option name="mobileSdkAppId" value="1:1066912281751:android:c82d4338a7afb0148125d2" />
+                  <option name="projectId" value="malik-studio-apps" />
+                  <option name="projectNumber" value="1066912281751" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
