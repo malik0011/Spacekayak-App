@@ -52,6 +52,9 @@ class ServerRepositoryImpl @Inject constructor(
     override suspend fun syncServersToCloud() = mutex.withLock {
         val servers = localDataSource.getServersFlow().first()
 
+        //getting all the servers from local data source
+        // and converting them to DTOs
+        //then updating them to Firestore
         servers.forEach { server ->
             val dto = server.toDto()
             firestore.collection("servers")

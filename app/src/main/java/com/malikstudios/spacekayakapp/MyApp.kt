@@ -2,6 +2,8 @@ package com.malikstudios.spacekayakapp
 
 import android.app.Application
 import android.content.Context
+import android.os.Handler
+import android.os.Looper
 import androidx.hilt.work.HiltWorkerFactory
 import androidx.work.Configuration
 import androidx.work.ExistingPeriodicWorkPolicy
@@ -28,7 +30,10 @@ class MyApp : Application(), Configuration.Provider {
 
         FirebaseApp.initializeApp(this)
         NotificationHelper.createNotificationChannel(this)
-        scheduleWorkers(this)
+        // Delay scheduling slightly to let Hilt initialize everything
+        Handler(Looper.getMainLooper()).post {
+            scheduleWorkers(this)
+        }
     }
 
     override val workManagerConfiguration: Configuration

@@ -52,12 +52,15 @@ class MainActivity : ComponentActivity() {
 
             // Triggering permission check in LaunchedEffect-->
             LaunchedEffect(Unit) {
+                //version check for POST_NOTIFICATIONS permission
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    //checking if the permission is not granted then requesting it
                     if (ContextCompat.checkSelfPermission(
                             this@MainActivity,
                             android.Manifest.permission.POST_NOTIFICATIONS
                         ) != PackageManager.PERMISSION_GRANTED
                     ) {
+                        // Launching the permission request
                         requestPermissionLauncher.launch(android.Manifest.permission.POST_NOTIFICATIONS)
                     }
                 }

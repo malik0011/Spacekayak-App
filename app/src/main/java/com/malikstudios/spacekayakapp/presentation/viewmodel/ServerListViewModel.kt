@@ -1,5 +1,6 @@
 package com.malikstudios.spacekayakapp.presentation.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.malikstudios.spacekayakapp.domain.model.Server
@@ -55,5 +56,17 @@ class ServerListViewModel @Inject constructor(
             val success = transitionUseCase(serverId, newState)
             if (!success) _toastEvent.emit("Invalid state transition")
         }
+    }
+
+    fun getBillingAmaount(): Double {
+        var billingAmaount = 0.0
+        _servers.value.forEach {
+            if (it.state == ServerState.RUNNING) {
+                billingAmaount += it.uptime * 0.1
+            }
+       }
+        Log.d("testAyan", "getBillingAmaount: $billingAmaount")
+        // Assuming 0.1 is the cost per hour for running servers
+        return billingAmaount
     }
 }

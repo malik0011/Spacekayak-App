@@ -15,7 +15,6 @@ import javax.inject.Inject
 class LocalDataSource @Inject constructor(
     private val serverDao: ServerDao
 ) {
-
     fun getServersFlow(): Flow<List<Server>> =
         serverDao.getAllServersFlow().map { it.map(ServerEntity::toDomain) }
 

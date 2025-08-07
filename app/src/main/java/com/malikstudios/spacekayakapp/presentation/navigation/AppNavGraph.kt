@@ -29,7 +29,7 @@ fun AppNavGraph(navController: NavHostController) {
 
             DashboardScreen(
                 totalServers = serversViewModel.servers.collectAsState().value.size,
-                totalBilling = 0.0, // Add billing logic later
+                totalBilling = serversViewModel.getBillingAmaount(), // Add billing logic later
                 onProvisionClick = {
                     navController.navigate(Screen.Provision.route)
                 },
